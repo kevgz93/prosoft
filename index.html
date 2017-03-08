@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Day 001 Login Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="_style/main.css">
+
+
+</head>
+
+<body>
+	 <div class="back">
+     <div class="main">
+   </div>
+   <div class="conte">
+  		<div class="mgroup">
+        <h2 class="title">Find your holidays</h2>
+				<div class="group">>
+		         <label class="label">Start Date:</label>
+               <md-content ng-controller="AppCtrl as ctrl" layout-padding layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage" ng-app="MyApp">
+                 <div flex-gt-xs="">
+                  <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                </div>
+              </md-content>
+            </div>
+				</div>
+				<div class="group">
+	           <label class="label">Number of Days:</label>
+	            <input  type="text" class="form-control" name="numberDay">
+				</div>
+				<div class="group">
+            <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Country Code
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">HTML</a></li>
+              <li><a href="#">CSS</a></li>
+              <li><a href="#">JavaScript</a></li>
+            </ul>
+          </div>
+				</div>
+				<div class="group">
+					<input type="submit" class="btn-info btn-primary" value="Search">
+				</div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/angular/controller/datectrl.js"></script>
+</html>
