@@ -10,6 +10,7 @@
 .mgroup{
   box-shadow:0 12px 15px 0 rgba(0,0,0,.10),0 17px 50px 0 rgba(0,0,0,.5);
   border-radius: 40px;
+  height: 515px;
   min-height:345px;
 	position:relative;
 	-webkit-perspective:1000px;
