@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Calendar Test",
+        "start": "2017-03-01 18:30:00",
+        "end": "2017-03-01 19:00:00",
+        "allDay": false
+    },
+    {
+        "title": "Calendar Test 1",
+        "start": "2017-03-15 18:30:00",
+        "end": "2017-03-18 19:00:00",
+        "allDay": false
+    },
+    {
+        "title": "Calendar Test 2",
+        "start": "2017-03-20 18:30:00",
+        "end": "2017-03-20 19:00:00",
+        "allDay": false
+    }
+]

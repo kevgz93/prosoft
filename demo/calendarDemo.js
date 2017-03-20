@@ -1,192 +1,16 @@
-var app = angular.module('MyApp', ['ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'materialCalendar','ui.calendar', 'ui.bootstrap'])
+/**
+ * calendarDemoApp - 0.9.0
+ */
+var calendarDemoApp = angular.module('MyApp', ['ui.calendar', 'ui.bootstrap']);
+var dat = require.module('startCalen');
 
-var t = 0;
-var data;
-
-
-app.controller('AppCtrl', function() {
-  this.myDate = new Date('01/01/2008');
-});
-
-
-app.controller('startCalen', function($scope, $filter, $http, $q, $rootScope, $window, servData){
-  var vm =  this;
-  vm.aux;
-  vm.data;
-  vm.holiday;
-  //vm.day = moment();
-  vm.myDate = new Date('01/01/2008');
-
-  this.minDate = new Date(
-    vm.myDate.getFullYear(),
-    vm.myDate.getMonth() - 0,
-    vm.myDate.getDate()
-  );
-
-  this.maxDate = new Date(
-    this.myDate.getFullYear(),
-    this.myDate.getMonth() + 11,
-    this.myDate.getDate()
-  );
-
-  vm.subm = function(){
-
-    var day = vm.myDate.getDate();
-    var month = vm.myDate.getMonth();
-    var numDay = parseInt(vm.days);
-    $rootScope.date = {
-      "date": vm.myDate,
-      "day": day,
-      "month": month,
-      "days": numDay,
-      "code": vm.code,
-    }
-    servData.addData($rootScope.date);
-    //call the function to know how many month needs to show
-    fApi($rootScope.date);
-
-    //brings the API
-    api($rootScope.date);
-
-    //show calendar
-    vm.showcal = function(){
-      vm.calendar = true;
-    }
-  }
-
-  //Api controller call
-  function api(data){
-    //vm.dat = data1;
-    callApi(data).then(function(resp){
-      $rootScope.holiday = resp;
-      //$window.location.href = '/calendar.html';
-      vm.showcal();
-  })
-  .catch(function(resp){
-    console.log(resp);
-  });
-};
-
-  //Api promise
-    function callApi (dat){
-    var key = "68695711-db64-4a44-9eb2-1eeffaae5afb";
-    var country = dat.code;
-    var year = "2008";
-    url = "https://holidayapi.com/v1/holidays?key="+key+"&country="+country+"&year="+year;
-    var deferred = $q.defer();
-    $http({
-      method: 'GET',
-      url: url,
-      data: data
-    }).success(function(data, status){
-      deferred.resolve(data);
-    })
-    .error(function(data, status){
-      deferred.reject(data);
-    });
-
-    return deferred.promise;
-  };
-});
-
-//Api function to get only the days for the necessary months.
-
-function fApi(dat){
-  var months = calendars(dat)
-}
-
-
-//how many months need to show
-function calendars(dat) {
-  var m = dat.month;
-  var mo = dat.day + dat.days;
-  var count=0;
-  var b = true;
-  for (var i = 0; i < 12; i++)
-  {
-    if(m == 0 || m == 2 || m == 4 || m == 6 || m == 7 || m == 9 || m == 11){
-      treintayuno(mo);
-    }
-
-    if(m == 0 || m == 2 || m == 4 || m == 6 || m == 7 || m == 9 || m == 11){
-      treita();
-    }
-
-
-    if(m ==1){
-      febrary();
-    }
-    if(mo <= 0){
-      break;
-    }
-  }
-  return t;
-
-  function treintayuno(){
-      if(mo > 31){
-        mo = mo-31;
-        t++;
-        m++;
-      }
-      if(mo<31){
-        mo = 0;
-      }
-  }
-
-  function treita(){
-      if(mo > 30){
-        mo = mo-30;
-        t++;
-        m++;
-      }
-      if(mo<31){
-        mo = 0;
-      }
-  }
-
-  function febrary(){
-      if(mo > 28){
-        mo = mo-28;
-        t++;
-        m++;
-      }
-      if(mo<31){
-        mo = 0;
-      }
-  }
-}
-
-
-//services
-app.service('servData', function() {
-  var serv = {};
-
-  this.addData = function (value) {
-      serv = value;
-}
-
-  this.getData = function () {
-    return serv;
-
- }
-    return {
-    addData: this.addData,
-    getData: this.getData,
-  }
-
-  });
-
-
-//Calendar controller
-
-app.controller('CalendarCtrl',
+calendarDemoApp.controller('CalendarCtrl',
    function($scope, $compile, $timeout, uiCalendarConfig, $rootScope) {
-     console.log($rootScope.date);
-     console.log($rootScope.holiday);
-     //var date = $rootScope.date)
-    var d = $rootScope.date.date.getDate();
-    var m = $rootScope.date.date.getMonth();
-    var y = $rootScope.date.date.getFullYear();
+   console.log($rootScope.dat);
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
 
     $scope.changeTo = 'Hungarian';
     /* event source that pulls from google.com */
@@ -301,3 +125,4 @@ app.controller('CalendarCtrl',
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
 });
+/* EOF */

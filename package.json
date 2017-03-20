@@ -1,0 +1,30 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "description": "prosoft challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevgz93/prosoft.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevgz93/prosoft/issues"
+  },
+  "homepage": "https://github.com/kevgz93/prosoft#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-less": "^3.3.0",
+    "gulp-path": "^3.0.3",
+    "gulp-webserver": "^0.9.1",
+    "run-sequence": "^1.2.2",
+    "spa-server": "^1.0.0",
+    "win-spawn": "^2.0.0"
+  }
+}
